@@ -143,8 +143,9 @@ From calculated central tendencies we can already make several conclusions about
  
 Now, let's build histograms for our variables to support central tendencies calculation.
 
-## Distributions graphs: 
 
+## Distributions graphs: 
+```{r}
 ggplot(data = proj_data, aes(x = Exam_Score)) +
   geom_histogram(binwidth = 1, color = 'black', fill = 'orange') +
   ggtitle('Final Exam Scores distribution') +
