@@ -200,7 +200,6 @@ ggplot(data = proj_data, aes(x = Attendance)) +
 ```
 ![image](https://github.com/user-attachments/assets/e1fbb417-5106-4dfd-9eb2-51ac64a9e6d9)
 
-
 Here we also encounter approximately uni-form distribution for Attendance variable, thus we were not right, calling this distribution asymmetrical. 
 
 Now let’s look at categorical variables distributions: 
@@ -214,10 +213,10 @@ ggplot(data = proj_data, aes(x = Parental_Involvement)) +
     y = "N of Students"
   ) +
   theme_light()
-
+```
 ![image](https://github.com/user-attachments/assets/12be65cc-ea61-4d52-b413-cdc593efadd0)
 
-```For Parental_Involvement we can see from the bar chart that the main part of students, approximately 3400 students, have a medium parental involvement level, the second biggest group of students, about 2000, have a high level of parental involvement, the least group, approximately 1200 students, have a low parental involvement. 
+For Parental_Involvement we can see from the bar chart that the main part of students, approximately 3400 students, have a medium parental involvement level, the second biggest group of students, about 2000, have a high level of parental involvement, the least group, approximately 1200 students, have a low parental involvement. 
 
 ```{r}
 school_type_data <- proj_data %>%
