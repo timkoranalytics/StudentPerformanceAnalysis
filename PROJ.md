@@ -1,4 +1,4 @@
-# student-s-performance-dataset
+# Students' Performance Analysis
 Student's performance dataset analysis in R 
 ## Reseacrh problem:
 
