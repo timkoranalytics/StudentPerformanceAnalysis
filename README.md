@@ -65,7 +65,19 @@ Exam_Score (Numeric, Continuous) - 	Final exam score.
 
 For our analysis we choose the following variables: Exam_Score, Hours_Studied, Sleep_Hours, Attendance, Previous_Scores, School_Type, Parental_Involvement. 
 
+## Hypotheses:
 
+H1: Hours studied have a positive effect on final exam scores.
+
+H2: Previous scores also positively impact the final exam score.
+
+H3: Sleep hours do not affect final exam scores.
+
+H4: Students' attendance will also contribute to a better exam score.
+
+H5: Students with higher parental involvement rate will most likely encounter better average exam scores.
+
+H6: The average score for the final exam does not differ for private and public schools.
 ## Descriptive statistics, plots and correlation matrix: 
 
 Firstly, I think it is quite important to look at central tendencies measures of our variables, for this purpose we will calculate mean, median and mode for numeric variables of our interest (Exam_Score, Hours_Studied, Sleep_Hours, Attendance, Previous_Scores), after it we will build histograms for these variables to make it more visual. For categorical variables of our (School_Type, Parental_Involvement) bar and pie charts will be built. Then we will build a correlation matrix to see if there are any relationships between our variables. And also some plots to make these correlations more visual. 
@@ -73,7 +85,6 @@ Firstly, I think it is quite important to look at central tendencies measures of
 
 
 ```{r}
-options(repos = c(CRAN = "https://cloud.r-project.org"))
 
 library(tidyverse)
 
@@ -141,6 +152,8 @@ ggplot(data = proj_data, aes(x = Exam_Score)) +
   xlab('Scores') +
   theme_light()
 ```
+![image](https://github.com/user-attachments/assets/e706f10b-2ea9-48dd-b9c0-3e5cb371ae32)
+
 
 Indeed, for variable Exam_Score we encounter a right-skewed distribution, what was expected after measuring central tendencies. 
 ```{r}
@@ -151,6 +164,7 @@ ggplot(data = proj_data, aes(x = Previous_Scores)) +
   xlab('Scores') +
   theme_light()
 ```
+![image](https://github.com/user-attachments/assets/2984fdd5-f2c2-4c35-b065-52daeea35425)
 
 For Previous_Scores we were not right about its distribution, on the plot we can see that it is quite symmetrical and it is approximately uni-form. 
 ```{r}
@@ -161,6 +175,7 @@ ggplot(data = proj_data, aes(x = Sleep_Hours)) +
   xlab('Hours of Sleep') +
   theme_light()
 ```
+![image](https://github.com/user-attachments/assets/0780cbae-1473-414b-a884-b24341959335)
 
 For Sleep_Hours distribution is obviously normal. 
 ```{r}
@@ -171,6 +186,7 @@ ggplot(data = proj_data, aes(x = Hours_Studied)) +
   xlab('Hours Studied') +
   theme_light()
 ```
+![image](https://github.com/user-attachments/assets/5b39605f-ba98-4f69-b448-6bb0d4bc43ac)
 
 For Hours_Studied the distribution is also normal, what was expected after calculated central tendencies measures. 
 ```{r}
@@ -181,6 +197,7 @@ ggplot(data = proj_data, aes(x = Attendance)) +
   xlab('Attendance (%)') +
   theme_light()
 ```
+![image](https://github.com/user-attachments/assets/e1fbb417-5106-4dfd-9eb2-51ac64a9e6d9)
 
 
 Here we also encounter approximately uni-form distribution for Attendance variable, thus we were not right, calling this distribution asymmetrical. 
@@ -196,6 +213,8 @@ ggplot(data = proj_data, aes(x = Parental_Involvement)) +
     y = "N of Students"
   ) +
   theme_light()
+
+![image](https://github.com/user-attachments/assets/12be65cc-ea61-4d52-b413-cdc593efadd0)
 
 ```For Parental_Involvement we can see from the bar chart that the main part of students, approximately 3400 students, have a medium parental involvement level, the second biggest group of students, about 2000, have a high level of parental involvement, the least group, approximately 1200 students, have a low parental involvement. 
 
@@ -216,6 +235,7 @@ ggplot(school_type_data, aes(x = "", y = Percentage, fill = School_Type)) +
   theme_void() 
   
 ```
+![image](https://github.com/user-attachments/assets/9c20bf53-4a00-4087-8fbb-520b68496dea)
 
 For School_Type - the majority of students, almost 70%,  study in the public schools, while 30% of students in the private ones.
 
@@ -233,6 +253,7 @@ cor_matrix
 corrplot(cor_matrix, method = "number")
 
 ```
+![image](https://github.com/user-attachments/assets/e1daa0d7-248a-49e7-af40-bedbe93fbc05)
 
 Based on the correlation matrix results we can see that the maximum positive correlation is between Attendance and Exam_Score (0.58). The weakest negative correlation is between Sleep_hours and Exam_Score (-0.02). The weakest positive correlation is between Previous_Scores and Exam_Score (0.18).Hours_Studied also has a significant correlation in relation to Exam_Score (0.45).
 
@@ -247,6 +268,7 @@ ggplot(data = proj_data, aes(x = Hours_Studied, y = Exam_Score)) +
   ylab("Exam Score") +
   theme_minimal() 
 ```
+![image](https://github.com/user-attachments/assets/42cc4a1f-bf3b-4a97-9f40-961846316a15)
 
 We can see on a scatter plot that the regression line has a positive slope as well as almost all observations are concentrated around the line. Thus, if students study more hours before an exam their final exam score will be higher.
 
@@ -259,6 +281,7 @@ ggplot(data = proj_data, aes(x = Previous_Scores, y = Exam_Score)) +
   ylab("Exam Score") +
   theme_minimal()  
 ```
+![image](https://github.com/user-attachments/assets/67cc68a7-609e-4597-a188-7aab405a4322)
 
 The slope of the regression line is positive. But the angle is very small and observations are widely scattered from the line. However, there is still some kind of correlation, but it is weak (we saw that on the correlation matrix the coefficient was pretty small too). In that case, previous scores have some effect on final exam scores, however it is not significant. 
 
@@ -272,6 +295,8 @@ ggplot(data = proj_data, aes(x = Sleep_Hours, y = Exam_Score)) +
   theme_minimal() 
 
 ```
+![image](https://github.com/user-attachments/assets/d4bdce59-fe75-45f5-8ed0-c1f583cb8dbc)
+
 
 
 It's clearly seen from the graph that the regression line is almost horizontal as well as observations spread too far from the line, indicating that there is no correlation. Correlation matrix displayed negative correlation, however the coefficient is too small, that is why we encounter an approximately horizontal regression line on a scatter plot. For this reason, we can say that the sleep hours of students do not really affect their performance at final exam. 
@@ -286,6 +311,8 @@ ggplot(data = proj_data, aes(x = Attendance, y = Exam_Score)) +
   theme_minimal() 
 
 ```
+![image](https://github.com/user-attachments/assets/e8c9fb49-e310-46f2-90b0-0d058cb4c765)
+
 
 We can see on a plot that the regression line also has a positive slope as well as almost all observations are concentrated near the line. Thus, we can say that the more frequently students attend their classes the higher exam score they get. 
 
@@ -297,6 +324,8 @@ ggplot(data = proj_data, aes(x = Parental_Involvement, y = Exam_Score, fill = Pa
        y = "Exam Score") +
   theme_minimal()
 ```
+![image](https://github.com/user-attachments/assets/9aa94a32-1f57-4fad-9424-a46fa2d7bfc1)
+
 
 To evaluate the effect of Parental involvement on a final exam score a box plot was built. We wanted to check whether the average scores vary for different levels of parental involvement. Based on this plot, we can see that the higher level of parental involvement is the higher the score, but the difference is not that big, as it can be seen on the graph that for all 3 groups the average score is between 65 and 70 points.
 
@@ -308,19 +337,11 @@ ggplot(data = proj_data, aes(x = School_Type, y = Exam_Score, fill = School_Type
        y = "Exam Score") +
   theme_minimal()
 ```
+![image](https://github.com/user-attachments/assets/f5c85254-f162-4796-8b6e-3069c1c38cb1)
+
+
 
 The same graph was built to check how school types affect the final exam score. However, we didn't find any big differences. The medians for both groups are almost equal. Thus, we can say that school type does not really affect the final exam score. 
 
 
 
-H1: Hours studied have a positive effect on final exam scores.
-
-H2: Previous scores also positively impact the final exam score.
-
-H3: Sleep hours do not affect final exam scores.
-
-H4: Students' attendance will also contribute to a better exam score.
-
-H5: Students with higher parental involvement rate will most likely encounter better average exam scores.
-
-H6: The average score for the final exam does not differ for private and public schools.
