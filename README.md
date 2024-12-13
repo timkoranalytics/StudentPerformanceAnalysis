@@ -1,5 +1,5 @@
 # student-s-performance-dataset
-Student's performance dataset analysis
+Student's performance dataset analysis in R 
 ## Reseacrh problem:
 
 This project aims to identify factors that can influence students' final exam scores. Based on the ready-made dataset we will examine different variables and correlation between them to identify which of them influence the final exam scores.  
